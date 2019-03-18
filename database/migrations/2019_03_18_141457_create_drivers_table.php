@@ -13,8 +13,15 @@ class CreateDriversTable extends Migration
      */
     public function up()
     {
+        //"user_id","avatar","phone","address","location"
         Schema::create('drivers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer("user_id")->unsigned();
+            $table->string("avatar");
+            $table->string("phone");
+            $table->string("address");
+            $table->string("location");
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->timestamps();
         });
     }

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 
-class MainApiController extends Controller
+class MainApiController extends BaseController
 {
     public function  getRestaurants(){
 
     }
+
+
 }
