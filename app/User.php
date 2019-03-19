@@ -44,6 +44,16 @@ class User extends Authenticatable
         return $this->hasMany(LinkedSocialAccount::class);
     }
 
+    public function customer(){
+        return $this->hasOne(Customer::class);
+    }
+
+    public function driver(){
+        return $this->hasOne(Driver::class);
+    }
+    public function restaurants(){
+        return $this->hasMany(Restaurant::class);
+    }
     /*Client ID: 1
         Client secret: XNI94tI0gsnGJfGnPWB3ACbqWouQgODTlKpKNBXB
         Password grant client created successfully.

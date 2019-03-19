@@ -16,8 +16,8 @@ class CreateOrderDetailsTable extends Migration
         //"order_id","meal_id","quantity","sub_total"
         Schema::create('order_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("order_id")->unsigned();
-            $table->integer("meal_id")->unsigned();
+            $table->bigInteger("order_id")->unsigned();
+            $table->bigInteger("meal_id")->unsigned();
             $table->double("quantity",8,2);
             $table->double("sub_total",8,2);
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');

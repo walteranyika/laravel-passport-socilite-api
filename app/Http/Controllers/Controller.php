@@ -14,10 +14,10 @@ class Controller extends BaseController
     //https://scotch.io/@neo/getting-started-with-laravel-passport
 
     /*Personal access client created successfully.
-Client ID: 1
-Client secret: 5gOcdT4BQsxsVW2AO4QrXgKqUd5NDPjY80OibZ3F
-Password grant client created successfully.
-Client ID: 2
-Client secret: K7VZkX2DF70f8oF8U8HIzw9MbXxkbWMOJ26pIJEr
+        Client ID: 1
+        Client secret: G9PFECpa0VHL4UEeRDyQPwHSD63Tk7dFLIRN4YXf
+        Password grant client created successfully.
+        Client ID: 2
+        Client secret: Qlb1eDNFZkzXLhHT6w2ESD6PwtjBEICwppycFSZ0
 */
 }
