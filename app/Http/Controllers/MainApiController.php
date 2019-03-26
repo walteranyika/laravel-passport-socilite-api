@@ -12,6 +12,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Stripe\Charge;
 use Stripe\Stripe;
 
@@ -34,16 +35,6 @@ class MainApiController extends BaseController
     }
 
     public function  addOrder(Request $request){
-
-        /* access_token
-            restaurant_id
-            address
-            order_details (json format), example:
-                [{"meal_id": 1, "quantity": 2},{"meal_id": 2, "quantity": 3}]
-            stripe_token
-        return:
-            {"status": "success"}*/
-
         $customer = Auth::user()->customer;
         $stripe_token = $request->input("stripe_token");
         $restaurant_id = $request->input("restaurant_id");
@@ -165,13 +156,5 @@ class MainApiController extends BaseController
         $driver->save();
         return $this->sendResponse($driver,"Earnings");
     }
-
-
-
-
-
-
-
-
 
 }

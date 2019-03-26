@@ -36,15 +36,19 @@
                         @if(Auth::user())
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Add Restaurant</a>
+                                <a href="{{route('add-restaurant')}}" class="nav-link">Add Restaurant</a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Add Meals</a>
+                                <a href="{{route('add-meal')}}" class="nav-link">Add Meals</a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">View Orders</a>
+                                <a href="{{route('restaurants')}}" class="nav-link">Restaurants</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Orders</a>
                             </li>
 
                         @endif
