@@ -11,8 +11,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('auth:api')->group(function (){
     Route::get('/restaurants', 'MainApiController@getRestaurants');
     Route::post('/meals', 'MainApiController@getMeals');
-    Route::post('/add/order', 'MainApiController@addOrder');
-    Route::get('/latest/order', 'MainApiController@getLatestOrder');
+    Route::post('/pay/order', 'MainApiController@addOrder');
+    Route::get('/orders', 'MainApiController@getLatestOrder');
     Route::get('/driver/location', 'MainApiController@customer_driver_location');
 
     Route::post('/order/notification', 'MainApiController@restaurant_order_notification');
@@ -25,5 +25,6 @@ Route::middleware('auth:api')->group(function (){
     Route::post('/complete/order', 'MainApiController@driver_complete_orders');
     Route::post('/driver/update/location', 'MainApiController@driver_update_location');
     Route::get('/get/revenue', 'MainApiController@driver_get_revenue');
+    Route::post('/user/create', 'MainApiController@createUser');
 
 });

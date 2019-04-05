@@ -58,7 +58,6 @@ class RestaurantController extends Controller
     public function add_meal()
     {
        $restaurants = Auth::user()->restaurants;
-
        return view('meal',compact('restaurants')) ;
     }
 

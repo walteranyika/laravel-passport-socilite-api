@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h2 class="text-center">Welcome to FoodTasker</h2>
                 </div>
             </div>
         </div>

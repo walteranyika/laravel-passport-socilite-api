@@ -19,6 +19,7 @@ class CreateOrderDetailsTable extends Migration
             $table->bigInteger("order_id")->unsigned();
             $table->bigInteger("meal_id")->unsigned();
             $table->double("quantity",8,2);
+            $table->string("meal_name")->nullable();
             $table->double("sub_total",8,2);
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade');

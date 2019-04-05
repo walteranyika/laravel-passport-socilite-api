@@ -11,4 +11,8 @@ class Meal extends Model
     public function restaurant(){
         return $this->belongsTo('App\Restaurant');
     }
+
+    public function order_details(){
+        return $this->hasMany(OrderDetail::class);
+    }
 }
