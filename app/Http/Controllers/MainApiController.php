@@ -130,7 +130,6 @@ class MainApiController extends BaseController
     {
         $customer = Auth::user()->customer;
         $order = Order::where(["customer_id" => $customer->id, "status" => 3])->latest()->first();
-
         if ($order!=null)
         {
             $driver = Driver::find($order->driver_id);
@@ -206,6 +205,13 @@ class MainApiController extends BaseController
     {
         $driver = Auth::user()->driver;
         $latest = Order::where(["driver_id" => $driver->id])->orderBy('picked_at', 'desc')->first();
+        $customer_name = Customer::find($latest->customer_id)->user->name;
+        $customer_image = Customer::find($latest->customer_id)->avatar;
+        $rest_address= Restaurant::find($latest->restaurant_id)->address;
+
+        $latest["customer_image"]=$customer_image;
+        $latest["customer_name"]=$customer_name;
+        $latest["restaurant_address"]=$rest_address;
         return $this->sendResponse($latest, "Latest Order");
     }
 
@@ -222,7 +228,7 @@ class MainApiController extends BaseController
     {
         $driver_id = Auth::user()->driver->id;
 
-        $results = DB::select(DB::raw("SELECT sum(total) FROM orders WHERE driver_id = $driver_id GROUP BY DATE(created_at)"));
+        $results = DB::select(DB::raw("SELECT created_at as created, sum(total) as total   FROM orders WHERE driver_id = $driver_id GROUP BY DATE(created_at) ORDER  BY created_at DESC  LIMIT 7"));
 
         return $this->sendResponse($results, "Earnings");
     }
